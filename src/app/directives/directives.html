@@ -1,0 +1,138 @@
+<div class="container-fluid p-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Angular-Directives </h3>
+        </div>
+        <div class="card-body p-4">
+
+            <h5 class="mb-3 text-primary border-bottom pb-2">1️⃣ Structural Directives - ngIF</h5>
+            <form>
+                <button class="btn btn-success px-4 me-2" type="buttton" (click)="showForm()">Show</button>
+                <button class="btn btn-success px-4 me-2" type="buttton" (click)="hideForm()">Hide</button>
+                <div class="row mb-12" *ngIf="_employeeForm">
+                    <div class="col-md-12">
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="studentName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="studentName" placeholder="Enter full name"
+                                    required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="studentName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="studentName" placeholder="Enter full name"
+                                    required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="studentAge" class="form-label">Age</label>
+                                <input type="number" class="form-control" id="studentAge" placeholder="Enter age"
+                                    required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <select class="form-select" id="gender" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success px-4 me-2" type="buttton">Submit</button>
+
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+
+
+                </div>
+            </form>
+            <h5 class="mb-3 text-primary border-bottom pb-2">1️⃣ Structural Directives - ngFor</h5>
+            <form>
+
+                <div class="row mb-12">
+                    <div class="col-md-12">
+
+                        <div class="row mb-12">
+                            <div class="col-md-12">
+                                <label for="productdetails" class="form-label">Product Detail</label>
+                                <ul>
+                                    <li *ngFor="let product of _productList">
+                                        {{product.Id | currency:'USD'}} - {{product.Name | uppercase}}
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success px-4 me-2" type="buttton">Submit</button>
+
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+
+
+                </div>
+            </form>
+            <h5 class="mb-3 text-primary border-bottom pb-2">1️⃣ Structural Directives - ngSwitch</h5>
+            <form>
+
+                <div class="row mb-12">
+                    <div class="col-md-12">
+
+                        <div class="row mb-12"  [ngClass]="{'isGreen':_isGreenClass}" >
+                            <div class="col-md-12">
+                                <label for="productdetails"   class="form-label" [ngStyle]=" { 'font-size':_fontSize }" >Product Detail</label>
+                                <ul [ngSwitch]="_productStatus">
+                                    <li *ngSwitchCase="'Available'">
+                                        <ul>
+                                            <li *ngFor="let product of _productList">
+                                                {{product.Id}} - {{product.Name | uppercase}}
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li *ngSwitchCase="'OutOfStock'">
+                                        OUT OF STOCK
+                                    </li>
+                                    <li *ngSwitchDefault>
+                                        Product Status is not available.
+                                    </li>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success px-4 me-2" type="buttton">Submit</button>
+
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+
+    </div>
+</div>
