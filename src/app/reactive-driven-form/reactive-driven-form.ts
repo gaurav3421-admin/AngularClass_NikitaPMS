@@ -24,12 +24,18 @@ export class ReactiveDrivenForm {
 
   }
   InsertStudentInformation() {
-    if (this.studentForm.valid) {
-      alert("this is student information submitted successfully");
-      alert("Name:" + this.studentForm.value.fullName + " Age:" + this.studentForm.value.age);
-      console.log("Student Information Submitted:", this.studentForm.value);
+    try {
+      if (this.studentForm.valid) {
+        alert("this is student information submitted successfully");
+        alert("Name:" + this.studentForm.value.fullName + " Age:" + this.studentForm.value.age);
+        console.log("Student Information Submitted:", this.studentForm.value);
 
+      }
     }
+    catch (error) {
+      console.error("Error submitting student information:", error);
+    }
+
 
   }
 
