@@ -7,18 +7,19 @@ import { Directives} from '../app/directives/directives';
 import { Pipes} from '../app/pipes/pipes';
 import { StudentInformation } from './student-information/student-information'; 
 import { ReactiveDrivenForm} from '../app/reactive-driven-form/reactive-driven-form';
+import { Menubar } from '../app/menubar/menubar'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,  
+  imports: [RouterOutlet,
     //Datatypes,
     //Databinding 
     //Directives
     //Pipes,
     //StudentInformation
-    ReactiveDrivenForm
-  
-  ], // step 2: add Login to imports array
+    //ReactiveDrivenForm,
+    Menubar
+     ], // step 2: add Login to imports array
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
