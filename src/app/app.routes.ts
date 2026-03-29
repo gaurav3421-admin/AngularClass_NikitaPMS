@@ -3,6 +3,7 @@ import { StudentInformation } from '../app/student-information/student-informati
 import { ReactiveDrivenForm } from '../app/reactive-driven-form/reactive-driven-form';
 import { ProductDetails } from './product-details/product-details';
 import { Menubar } from '../app/menubar/menubar';
+import { AddProductDetails } from '../app/add-product-details/add-product-details';
 import { ErrorPage } from '../app/error-page/error-page'
 
 
@@ -13,7 +14,9 @@ export const routes: Routes = [
     { path: 'student-information', component: StudentInformation },
     { path: 'rform', component: ReactiveDrivenForm },
     { path: 'productdetails', component: ProductDetails },
+    { path: 'addproductdetails', component: AddProductDetails },
     { path: 'productdetails/:id', title: 'Product Details', component: ProductDetails },
+
     { path: '**', component: ErrorPage } // Wildcard route for 404 error page
 ];
 
