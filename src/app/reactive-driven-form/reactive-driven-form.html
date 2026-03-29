@@ -7,7 +7,7 @@
         <div class="container-fulid mt-1">
             <div class="card p-4 shadow">
                 <!-- Reference the form with #studentForm and bind to ngSubmit event -->
-                <form [formGroup]="studentForm" (ngSubmit)="InsertStudentInformation()" >
+                <form [formGroup]="studentForm" (ngSubmit)="InsertStudentInformation()">
 
                     <!-- Section 1: Student Basic Information -->
                     <h5 class="mb-3 text-primary border-bottom pb-2">1️⃣ Student Basic Information Basic</h5>
@@ -15,16 +15,33 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="studentName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" placeholder="Enter full name" name="fullName" formControlName="fullName"  >
-                           <div *ngIf="studentForm.controls['fullName'].invalid && (studentForm.controls['fullName'].dirty || studentForm.controls['fullName'].touched)" class="text-danger">
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter full name"
+                                name="fullName" formControlName="fullName">
+                            <div *ngIf="studentForm.controls['fullName'].invalid && (studentForm.controls['fullName'].dirty || studentForm.controls['fullName'].touched)"
+                                class="text-danger">
                                 Name is required.
                             </div>
                         </div>
                         <div class="col-md-3">
                             <label for="studentAge" class="form-label">Age</label>
-                            <input type="number" class="form-control" id="studentAge" placeholder="Enter age" name="age" formControlName="age" >
-                            <div *ngIf="studentForm.controls['age'].invalid && (studentForm.controls['age'].dirty || studentForm.controls['age'].touched)" class="text-danger">
+                            <input type="number" class="form-control" id="studentAge" placeholder="Enter age" name="age"
+                                formControlName="age">
+                            <div *ngIf="studentForm.controls['age'].invalid && (studentForm.controls['age'].dirty || studentForm.controls['age'].touched)"
+                                class="text-danger">
                                 Valid age is required.
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="studentState" class="form-label">State</label>
+                            <select class="form-select" id="state" name="state" formControlName="state">
+                                <option value="" disabled>Choose...</option>
+                                <option *ngFor="let state of stateList" [value]="state.id">{{ state.stateName }}
+                                </option>
+                            </select>
+
+                            <div *ngIf="studentForm.controls['state'].invalid && (studentForm.controls['state'].dirty || studentForm.controls['state'].touched)"
+                                class="text-danger">
+                                Valid state is required.
                             </div>
                         </div>
 
@@ -38,6 +55,26 @@
                         <button type="submit" class="btn btn-success px-4 me-2">Submit</button>
                         <button type="reset" class="btn btn-secondary px-4">Reset</button>
                     </div>
+
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>title</th>
+                                <th>description</th>
+                                <th>category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let productlist of products" >
+                                <td>{{ productlist.id }}</td>
+                                <td>{{ productlist.title }}</td>
+                                <td>{{ productlist.description }}</td>
+                                <td>{{ productlist.category }}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
 
                 </form>
             </div>

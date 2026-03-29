@@ -9,7 +9,7 @@
                 <form #studentForm="ngForm" (ngSubmit)="onSubmitStudentInformation(studentForm)" novalidate>
 
                     <!-- Section 1: Student Basic Information -->
-                    <h5 class="mb-3 text-primary border-bottom pb-2">1️⃣ Student Basic Information</h5>
+                    <h5 class="mb-3 text-primary border-bottom pb-2">1️⃣ Student Basic Information Basic</h5>
 
                     <div class="row mb-3">
                         <div class="col-md-3">
@@ -38,6 +38,18 @@
                                 </select>
                                 <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="text-danger">
                                     Gender is required.
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <label for="country" class="form-label">Country</label>
+                                <select class="form-select" id="country" name="country" [(ngModel)]="studentData.country"
+                                    #country="ngModel" required>
+                                    <option value="" disabled>Choose...</option>
+                                     <option *ngFor="let c of countries" [value]="c.id">{{ c.countryName }}</option>
+                                </select>
+                                <div *ngIf="country.invalid && (country.dirty || country.touched)" class="text-danger">
+                                    Country is required.
                                 </div>
 
                             </div>

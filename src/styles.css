@@ -1,7 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* Use a single CSS variable for the app font and apply globally */
+:root {
+  --app-font-family: "Arial", "Helvetica", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--app-font-family);
+  font-size: 14px;
+}
+
+/* Ensure form controls, buttons and common UI elements also use the same font */
+*, input, button, select, textarea, .btn, .form-control, .form-select, .navbar, .card {
+  font-family: var(--app-font-family);
+}
+
 /* Make all Bootstrap form controls small globally */
 .form-control,
 .form-select,
