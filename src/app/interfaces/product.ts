@@ -3,5 +3,6 @@ export interface ProductItem {
     title: string;
     description: string;
     category: string;
+    
 
 }
