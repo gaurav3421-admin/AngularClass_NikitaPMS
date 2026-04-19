@@ -73,6 +73,16 @@ private apiURLDeleteProduct = 'https://dummyjson.com/products';
     }
   }
 
+  private apiURLUpdateProduct = 'https://dummyjson.com/products';
+//'https://dummyjson.com/products/1'
+  updateProductDetails(productID: number , product: ProductItem): Observable<ProductItem | null> {
+    if (this._httpClientRequest) {
+      return this._httpClientRequest.put<ProductItem>(`${this.apiURLUpdateProduct}/${productID}`, product);
+    } else {
+      return of(null);
+    }
+  }
+
 
 //Method to get Country List
   getCountryList(): any {
