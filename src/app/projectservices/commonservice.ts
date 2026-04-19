@@ -52,10 +52,39 @@ export class Commonservice {
 
  }
 
+private apiURLSearchProduct = 'https://dummyjson.com/products/search';
+//'https://dummyjson.com/products/search?q=phone'
+ searchProduct(searchText: string): Observable<ProductItem[]> {
+
+  if (this._httpClientRequest) {
+    return this._httpClientRequest.get<ProductItem[]>(`${this.apiURLSearchProduct}?q=${searchText}`);
+  } else {
+    return of([]);
+  }
+}
+
+private apiURLDeleteProduct = 'https://dummyjson.com/products';
+//'https://dummyjson.com/products/1'
+  deleteProductDetails(productID: number): Observable<ProductItem | null> {
+    if (this._httpClientRequest) {
+      return this._httpClientRequest.delete<ProductItem>(`${this.apiURLDeleteProduct}/${productID}`);
+    } else {
+      return of(null);
+    }
+  }
+
+  private apiURLUpdateProduct = 'https://dummyjson.com/products';
+//'https://dummyjson.com/products/1'
+  updateProductDetails(productID: number , product: ProductItem): Observable<ProductItem | null> {
+    if (this._httpClientRequest) {
+      return this._httpClientRequest.put<ProductItem>(`${this.apiURLUpdateProduct}/${productID}`, product);
+    } else {
+      return of(null);
+    }
+  }
 
 
-
-  //Method to get Country List
+//Method to get Country List
   getCountryList(): any {
 
     const countryList = [
